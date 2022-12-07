@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
+        <div class="container d-flex justify-content-center align-items-center">
+            <span class="text-dark h1">貓</span> <span class="text-primary h1">品種介紹</span>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 my-3" id="card-container">
+    </div>
+
+    <div class="bg-light text-center mt-3">
+        <div class="py-3">竹山高中 - 應用資訊社</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        var img_urls = [
+            "https://i.imgur.com/YxeF7W0.jpg",
+            "https://i.imgur.com/Hqmzjlq.jpg",
+            "https://i.imgur.com/aZtEuYU.jpg",
+            "https://i.imgur.com/kZALXfH.jpg",
+            "https://i.imgur.com/hgIVaPD.jpg",
+        ]
+        var img_headers = [
+            "俄羅斯藍貓",
+            "土耳其安哥拉貓",
+            "蘇格蘭摺耳貓",
+            "阿比西尼亞貓",
+            "布偶貓",
+        ]
+        var text_contents = [
+            "亦名阿克漢格藍貓過去這種貓的毛色只有藍色，1970年代培育出了黑白毛色的俄羅斯藍貓。純種的俄羅斯藍貓呈中等深度的灰藍色，在貓的毛色中並不常見，故被視為一種貴族貓。俄羅斯藍貓起名為其身上藍色間雜銀色漸層的毛髮。俄羅斯藍貓廣為世人所知是它的聰穎與好玩，以及在陌生人面前的靦腆害羞的個性。",
+            "是長毛貓的一種，起源於15世紀，在波斯貓風行之前，該貓一直是最受歡迎的貓的品種。現在，這種貓的數量已經出現減少。土耳其安哥拉貓的傳統顏色為白色，但現在毛色已明顯多樣化,另外在土耳其民間傳說中，土耳其國父凱末爾逝世後將轉世為一隻聾耳的白色安哥拉貓。",
+            "是一種耳朵有基因突變的貓。這種貓在軟骨部份有一個摺，使耳朵向前屈摺，並指向頭的前方。由於這貓種最初在蘇格蘭發現，所以以牠的發現地和身體特徵而命名。其後，這貓種在美國繼續繁殖，並演生成為今日的多個品種。現時蘇格蘭摺耳貓有以下兩對不同的特徵：長毛貓種及短毛貓種，及摺耳和豎耳貓種。",
+            "是一種有著悠久歷史的家貓品種，屬短毛貓種。體態優雅、出眾，眼睛閃著金色光澤，有王者風範。阿比西尼亞貓來源不清，傳說是起源於尼羅河沿岸地帶，該品種的貓活躍好動、性格外向、獨立性強。它也是美國最受歡迎的短毛貓種。",
+            "是家貓的一個品種，擁有柔軟而修長的毛，需要經常梳理、清洗以防止打結。這個品種由美國人安·貝克（Ann Baker）在1960年代培育出來，因性子溫順、抱起來就好像柔軟的布偶一般而得名。它在原產地美國和英國頗為常見，因為溫順且特別粘人而又在當地得名",
+        ]
+
+        $(document).ready(function() {
+            if (img_urls.length !== img_headers.length || img_headers.length != text_contents.length) {
+                alert("圖片、標題、內文的個數不符");
+                return;
+            }
+
+            var card_container = $("#card-container");
+            for (let i = 0; i < img_urls.length; i++) {
+                var img = img_urls[i];
+                var header = img_headers[i]
+                var content = text_contents[i]
+                var element = $($.parseHTML(`
+                    <div class="col">
+                        <div class="card">
+                            <img src="${img}" class="card-img-top" alt="img alt ${i}">
+                            <div class="card-body">
+                            <h5 class="card-title" id="test111">${header}</h5>
+                            <p class="card-text">${content}</p>
+                            </div>
+                        </div>
+                    </div>
+                `));
+                card_container.append(element);
+            }
+        })
+
+    </script>
+</body>
+
+</html>
+Footer
+c 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
